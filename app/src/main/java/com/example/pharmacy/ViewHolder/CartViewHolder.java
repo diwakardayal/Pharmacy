@@ -1,4 +1,4 @@
-package com.example.pharmacy.Model;
+package com.example.pharmacy.ViewHolder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

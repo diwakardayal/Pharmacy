@@ -44,9 +44,9 @@
 
         <ImageView
             android:id="@+id/female_dresses"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/female_dresses"/>
+            android:layout_width="98dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/female_dresses" />
 
         <ImageView
             android:id="@+id/sweather"

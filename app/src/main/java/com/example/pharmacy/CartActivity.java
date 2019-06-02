@@ -16,8 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pharmacy.Model.Cart;
-import com.example.pharmacy.Model.CartViewHolder;
-import com.example.pharmacy.Model.Products;
+import com.example.pharmacy.ViewHolder.CartViewHolder;
 import com.example.pharmacy.Prevalent.Prevalent;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;

@@ -1,7 +1,9 @@
 package com.example.pharmacy;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -73,6 +75,42 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
                            startActivity(intent);
                        }
                    });
+
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            CharSequence options[] = new CharSequence[]
+                                    {
+
+                                            "Yes",
+                                            "No"
+                                    };
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(AdminNewOrdersActivity.this);
+                            builder.setTitle("Have You Shipped this order");
+
+                            builder.setItems(options, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int i) {
+
+                                    if(i == 0){
+
+                                        String uID = getRef(position).getKey();
+
+                                        RemoverOrder(uID);
+
+
+                                    }else{
+
+                                        finish();
+                                    }
+
+                                }
+                            });
+                            builder.show();
+                        }
+                    });
                     }
 
                     @NonNull
@@ -89,6 +127,8 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
         ordersList.setAdapter(adapter);
         adapter.startListening();
     }
+
+
 
     public static class AdminOrdersViewHolder extends RecyclerView.ViewHolder{
 
@@ -107,5 +147,11 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
         }
 
 
+    }
+
+
+    private void RemoverOrder(String uID) {
+
+        ordersRef.child(uID).removeValue();
     }
 }
